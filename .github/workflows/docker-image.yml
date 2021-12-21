@@ -31,13 +31,14 @@ jobs:
     - name: Version TAG low
       run: echo "VERSION_LOW=$VERSION_MIDDLE" | sed 's/\.[[:digit:]]\{1,3\}$//' >> $GITHUB_ENV
 
-    - name: Test
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag $USERNAME/$REPOSITORY:latest
+
+    - name: Add Docker TAGs
       run: |
-        echo $USERNAME
-        echo $REPOSITORY
-        echo $VERSION_HIGH
-        echo $VERSION_MIDDLE
-        echo $VERSION_LOW
-        echo $USERNAME/$REPOSITORY:$VERSION_HIGH
-        echo $USERNAME/$REPOSITORY:$VERSION_MIDDLE
-        echo $USERNAME/$REPOSITORY:$VERSION_LOW
+        docker tag $USERNAME/$REPOSITORY $USERNAME/$REPOSITORY:$VERSION_HIGH
+        docker tag $USERNAME/$REPOSITORY $USERNAME/$REPOSITORY:$VERSION_MIDDLE
+        docker tag $USERNAME/$REPOSITORY $USERNAME/$REPOSITORY:$VERSION_LOW
+
+    - name: PUSH to Docker HUB
+      run: docker image push --all-tags $USERNAME/$REPOSITORY
