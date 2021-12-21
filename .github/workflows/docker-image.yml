@@ -22,12 +22,20 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Version TAG
-      run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+    - name: Version TAG high
+      run: echo "VERSION_HIGH=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      
+    - name: Version TAG middle
+      run: echo "VERSION_MIDDLE=$VERSION_HIGH | sed "s/\.[[:digit:]]\{1,3\}$//"" >> $GITHUB_ENV
+
+    - name: Version TAG low
+      run: echo "VERSION_LOW=$VERSION_MIDDLE | sed "s/\.[[:digit:]]\{1,3\}$//"" >> $GITHUB_ENV
 
     - name: Test
       run: |
         echo $USERNAME
         echo $REPOSITORY
-        echo $RELEASE_VERSION
-        echo $USERNAME/$REPOSITORY:$RELEASE_VERSION
+        echo $VERSION_HIGH
+        echo $VERSION_MIDDLE
+        echo $VERSION_LOW
+        echo $USERNAME/$REPOSITORY:$VERSION_HIGH
