@@ -1,7 +1,7 @@
-FROM node:12.19.0-alpine
+FROM node:12.22.8-alpine
 
 RUN apk add --no-cache --update bash
-RUN apk add --no-cache --update --virtual build git python make gcc g++ tzdata
+RUN apk add --no-cache --update --virtual build git python2 make gcc g++ tzdata
 WORKDIR /polyfill
 ARG POLYFILL_TAG='v4.43.1'
 ARG NODE_ENV='production'
