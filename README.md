@@ -7,5 +7,6 @@ docker run --name js-polyfill -p 8801:8801 -d teawithfruit/js-polyfill:latest
 ```
 ## With docker-compose
 ```
+git clone https://github.com/teawithfruit/js-polyfill.git
 docker-compose up -d
 ```
