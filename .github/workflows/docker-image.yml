@@ -30,3 +30,4 @@ jobs:
         echo $USERNAME
         echo $REPOSITORY
         echo $RELEASE_VERSION
+        echo $USERNAME/$REPOSITORY:$RELEASE_VERSION
