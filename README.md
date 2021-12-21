@@ -1,3 +1,5 @@
+[![Docker Image CI](https://github.com/teawithfruit/js-polyfill/actions/workflows/docker-image.yml/badge.svg)](https://github.com/teawithfruit/js-polyfill/actions/workflows/docker-image.yml)
+
 # js-polyfill
 This is a docker container setup based on [Financial-Times/polyfill-service](https://github.com/Financial-Times/polyfill-service).
 # Run
