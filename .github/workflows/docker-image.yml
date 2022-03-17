@@ -44,7 +44,7 @@ jobs:
         platforms: linux/amd64,linux/arm64
         push: true
         tags: |
-          $USERNAME/$REPOSITORY:latest
-          $USERNAME/$REPOSITORY:$VERSION_HIGH
-          $USERNAME/$REPOSITORY:$VERSION_MIDDLE
-          $USERNAME/$REPOSITORY:$VERSION_LOW
+          ${{ USERNAME }}/${{ REPOSITORY }}:latest
+          ${{ USERNAME }}/${{ REPOSITORY }}:${{ VERSION_HIGH }}
+          ${{ USERNAME }}/${{ REPOSITORY }}:${{ VERSION_MIDDLE }}
+          ${{ USERNAME }}/${{ REPOSITORY }}:${{ VERSION_LOW }}
