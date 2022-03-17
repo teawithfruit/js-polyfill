@@ -43,4 +43,4 @@ jobs:
         context: .
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: ${{ USERNAME }}/${{ REPOSITORY }}:latest,${{ USERNAME }}/${{ REPOSITORY }}:${{ VERSION_HIGH }},${{ USERNAME }}/${{ REPOSITORY }}:${{ VERSION_MIDDLE }},${{ USERNAME }}/${{ REPOSITORY }}:${{ VERSION_LOW }}
+        tags: ${{ env.USERNAME }}/${{ env.REPOSITORY }}:latest,${{ env.USERNAME }}/${{ env.REPOSITORY }}:${{ env.VERSION_HIGH }},${{ env.USERNAME }}/${{ env.REPOSITORY }}:${{ env.VERSION_MIDDLE }},${{ env.USERNAME }}/${{ env.REPOSITORY }}:${{ env.VERSION_LOW }}
