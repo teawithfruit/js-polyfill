@@ -10,6 +10,7 @@ RUN \
   git checkout ${POLYFILL_TAG} && \
   rm -rf .git && \
   yarn install && \
+  yarn add semver && \
   sed -i.bak -e 's,^node,exec node,' start_server.sh && \
   mv start_server.sh /bin/ && \
   chmod a+x /bin/start_server.sh && \
