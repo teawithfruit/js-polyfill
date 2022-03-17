@@ -1,9 +1,9 @@
-FROM node:12.22.8-alpine
+FROM node:12.22.10-alpine
 
 RUN apk add --no-cache --update bash
 RUN apk add --no-cache --update --virtual build git python2 make gcc g++ tzdata
 WORKDIR /polyfill
-ARG POLYFILL_TAG='v4.43.1'
+ARG POLYFILL_TAG='v4.46.0'
 ARG NODE_ENV='production'
 RUN \
   git clone https://github.com/Financial-Times/polyfill-service . && \
