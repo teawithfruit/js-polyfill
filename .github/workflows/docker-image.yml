@@ -3,6 +3,11 @@ name: Docker Image CI
 on:
   push:
     tags: ["v*.*.*"]
+  workflow_dispatch:
+    inputs:
+      Manual Build:
+        description: "Manual Build"
+        required: false
 
 env:
   USERNAME: ${{ github.actor }}
